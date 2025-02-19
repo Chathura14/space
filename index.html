@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Space Facts</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+        #stars {
+            width: 3px;
+            height: 3px;
+            background: transparent;
+            box-shadow: 989px 1049px white, 1620px 187px white, 1510px 1450px white, 130px 1820px white, 1860px 940px white, 590px 1380px white, 1200px 370px white, 490px 760px white, 640px 640px white, 840px 320px white, 430px 1220px white, 230px 520px white, 950px 170px white, 760px 1820px white, 540px 590px white, 1210px 1310px white, 1630px 590px white, 420px 930px white, 1110px 350px white, 1720px 630px white, 500px 500px white, 300px 1100px white, 700px 300px white, 900px 800px white, 1200px 1000px white, 1500px 500px white, 1700px 200px white, 1900px 1500px white, 2000px 100px white;
+            animation: animStar 50s linear infinite;
+        }
+        @keyframes animStar {
+            from {
+                transform: translateY(0px) translateX(0px);
+            }
+            to {
+                transform: translateY(-2000px) translateX(-1000px);
+            }
+        }
+        .fact-card {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 300px;
+            margin: auto;
+            opacity: 1;
+            transition: opacity 0.5s;
+            transform: scale(1);
+            transition: transform 0.5s;
+        }
+        .fact-card:hover {
+            transform: scale(1.05);
+        }
+        h1 {
+            font-size: 24px;
+            color: #FFD700; /* Gold color for the heading */
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="stars"></div>
+    <div class="fact-card">
+        <h1>Random Space Fact</h1>
+        <p id="fact">Click the button to see a random fact about space!</p>
+        <button onclick="showRandomFact()">Get Fact</button>
+    </div>
+
+    <script>
+        const facts = [
+            "A day on Venus is longer than a year on Venus.",
+            "Venus rotates counter-clockwise, possibly because of a collision in the past with an asteroid.",
+            "On Mars, the Sun appears about half the size as it does on Earth.",
+            "Jupiter has the shortest day of all the planets.",
+            "The Milky Way galaxy will collide with the Andromeda Galaxy in about 5 billion years.",
+            "The Sun contains 99.86% of the mass in our solar system.",
+            "There are more trees on Earth than stars in the Milky Way.",
+            "Neutron stars can spin at a rate of 600 rotations per second."
+        ];
+
+        function showRandomFact() {
+            const factElement = document.getElementById('fact');
+            factElement.style.opacity = 0;
+            setTimeout(() => {
+                const factIndex = Math.floor(Math.random() * facts.length);
+                factElement.innerText = facts[factIndex];
+                factElement.style.opacity = 1;
+            }, 500);
+        }
+    </script>
+</body>
+</html>
